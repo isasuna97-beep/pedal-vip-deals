@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Entre gratuitamente no grupo VIP Pedal em Ofertas: cupons secretos e promoções de bikes, peças, acessórios e fitness na Shopee, Mercado Livre e Amazon.",
+          "Entre gratuitamente no grupo VIP Pedal em Oferta: cupons secretos e promoções de bikes, peças, acessórios e fitness na Shopee, Mercado Livre e Amazon.",
       },
       { property: "og:title", content: "Pedal em Oferta — Grupo VIP de Ofertas Secretas" },
       {
@@ -108,7 +108,7 @@ function Index() {
       </div>
 
       <section className="mx-auto flex w-full max-w-md flex-col items-center px-5 pb-10 pt-6 text-center">
-        <h2 className="text-lg font-bold italic text-foreground">Pedal em Ofertas</h2>
+        <h2 className="text-lg font-bold italic text-foreground">Pedal em Oferta</h2>
         <p className="mt-0.5 text-sm font-medium italic text-muted-foreground">
           Bikes · Peças · Acessórios · Fitness
         </p>
