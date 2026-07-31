@@ -28,11 +28,19 @@ export const Route = createFileRoute("/")({
 const WHATSAPP_URL =
   "https://chat.whatsapp.com/DzkCF5hSe8EEtiHh7PHkII?s=cl&p=a&mlu=0&amv=1";
 
-const NOMES = [
+const NOMES_FEM = [
   "Maria", "Ana", "Juliana", "Fernanda", "Camila", "Patrícia", "Larissa",
   "Amanda", "Beatriz", "Carolina", "Gabriela", "Letícia", "Bruna", "Aline",
   "Vanessa", "Rafaela", "Débora", "Priscila", "Tatiane", "Sabrina", "Jéssica",
   "Renata", "Luciana", "Mariana", "Bianca", "Cristiane", "Simone", "Natália",
+];
+
+const NOMES_MASC = [
+  "João", "Pedro", "Carlos", "Bruno", "Rafael", "Lucas", "Gabriel", "Felipe",
+  "Rodrigo", "Marcos", "André", "Thiago", "Eduardo", "Ricardo", "Marcelo",
+  "Gustavo", "Diego", "Vinícius", "Leonardo", "Daniel", "Fábio", "Rafael",
+  "Caio", "Matheus", "Henrique", "Guilherme", "Rogério", "Alexandre", "Júlio",
+  "Paulo", "Roberto", "Fernando", "Sérgio", "Maurício", "Evandro",
 ];
 
 declare global {
