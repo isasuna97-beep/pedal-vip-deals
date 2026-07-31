@@ -60,6 +60,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-verified: var(--verified);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
   --shadow-soft: var(--shadow-soft);
   --animate-pulse-cta: pulse-cta 1.8s ease-in-out infinite;
   --animate-notif: notif 3.8s ease forwards;
@@ -69,11 +71,11 @@
   0%,
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 oklch(0.68 0.19 48 / 0.55);
+    box-shadow: 0 0 0 0 oklch(0.62 0.16 155 / 0.55);
   }
   50% {
     transform: scale(1.035);
-    box-shadow: 0 0 0 14px oklch(0.68 0.19 48 / 0);
+    box-shadow: 0 0 0 14px oklch(0.62 0.16 155 / 0);
   }
 }
 
@@ -95,7 +97,10 @@
 
 
 :root {
+  color-scheme: light only;
   --radius: 0.625rem;
+  --whatsapp: oklch(0.62 0.16 155);
+  --whatsapp-foreground: oklch(1 0 0);
   --background: oklch(0.98 0.03 75);
   --foreground: oklch(0.18 0.01 60);
   --card: oklch(1 0 0);
