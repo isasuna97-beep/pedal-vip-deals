@@ -97,7 +97,10 @@
 
 
 :root {
+  color-scheme: light only;
   --radius: 0.625rem;
+  --whatsapp: oklch(0.62 0.16 155);
+  --whatsapp-foreground: oklch(1 0 0);
   --background: oklch(0.98 0.03 75);
   --foreground: oklch(0.18 0.01 60);
   --card: oklch(1 0 0);
