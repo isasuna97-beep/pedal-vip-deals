@@ -88,7 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pedal em Ofertas — Grupo VIP de Ofertas" },
+      { title: "Pedal em Oferta — Grupo VIP de Ofertas" },
       {
         name: "description",
         content:
