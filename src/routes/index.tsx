@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 });
 
 const WHATSAPP_URL =
-  "https://chat.whatsapp.com/DzkCF5hSe8EEtiHh7PHkII?s=cl&p=a&mlu=0&amv=1";
+  "https://pedalemoferta.lucreshop.com.br/whatsapp/488ZftC";
 
 const NOMES_FEM = [
   "Maria", "Ana", "Juliana", "Fernanda", "Camila", "Patrícia", "Larissa",
