@@ -6,7 +6,7 @@ import logo from "@/assets/pedal-logo.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pedal em Ofertas — Grupo VIP de Ofertas Secretas" },
+      { title: "Pedal em Oferta — Grupo VIP de Ofertas Secretas" },
       {
         name: "description",
         content:
