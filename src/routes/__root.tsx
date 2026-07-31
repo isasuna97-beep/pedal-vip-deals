@@ -94,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Grupo VIP gratuito no WhatsApp com cupons e ofertas de bikes, peças, acessórios e fitness.",
       },
-      { property: "og:title", content: "Pedal em Ofertas — Grupo VIP de Ofertas" },
+      { property: "og:title", content: "Pedal em Oferta — Grupo VIP de Ofertas" },
       {
         property: "og:description",
         content: "Cupons secretos e promoções selecionadas todos os dias.",
