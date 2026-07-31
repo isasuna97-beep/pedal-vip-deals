@@ -62,7 +62,9 @@ function Notifications() {
       const delay = 4000 + Math.random() * 3000;
       timeout = setTimeout(() => {
         const id = ++counter;
-        const nome = NOMES[Math.floor(Math.random() * NOMES.length)];
+        const isMasc = Math.random() < 0.7;
+        const pool = isMasc ? NOMES_MASC : NOMES_FEM;
+        const nome = pool[Math.floor(Math.random() * pool.length)];
         setItems((prev) => [...prev, { id, nome }]);
         setTimeout(() => {
           setItems((prev) => prev.filter((i) => i.id !== id));
