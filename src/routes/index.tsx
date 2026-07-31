@@ -87,9 +87,9 @@ function Notifications() {
 }
 
 const BENEFITS = [
-  "Cupons Secretos",
-  "Apenas promoções selecionadas",
-  "Pode sair quando quiser",
+  { emoji: "🎁", text: "Cupons Secretos" },
+  { emoji: "✨", text: "Apenas promoções selecionadas" },
+  { emoji: "🚪", text: "Pode sair quando quiser" },
 ];
 
 function Index() {
@@ -103,7 +103,7 @@ function Index() {
 
       <div className="w-full bg-primary px-4 py-3 text-center">
         <p className="text-sm font-extrabold uppercase tracking-wide text-primary-foreground">
-          Participe do grupo de forma gratuita
+          🎁 Participe do grupo de forma gratuita 🎉
         </p>
       </div>
 
@@ -136,11 +136,13 @@ function Index() {
 
         <ul className="mt-5 w-full space-y-2.5 text-left">
           {BENEFITS.map((b) => (
-            <li key={b} className="flex items-center gap-3">
+            <li key={b.text} className="flex items-center gap-3">
               <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary">
                 <Check className="size-4 text-primary-foreground" strokeWidth={3} />
               </span>
-              <span className="min-w-0 text-base font-semibold text-foreground">{b}</span>
+              <span className="min-w-0 text-base font-semibold text-foreground">
+                {b.emoji} {b.text}
+              </span>
             </li>
           ))}
         </ul>
