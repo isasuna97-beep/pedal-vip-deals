@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, BadgeCheck } from "lucide-react";
 import logo from "@/assets/pedal-logo.png.asset.json";
-import whatsappIcon from "@/assets/whatsapp-icon.asset.json";
+import whatsappIcon from "@/assets/whatsapp-icon.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -156,9 +156,9 @@ function Index() {
           className="animate-pulse-cta mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-whatsapp px-5 py-4 text-base font-extrabold uppercase tracking-wide text-whatsapp-foreground transition-transform active:scale-95"
         >
           <img
-            src={whatsappIcon.url}
+            src={whatsappIcon}
             alt="Ícone do WhatsApp"
-            className="size-7 shrink-0 rounded-md"
+            className="size-7 shrink-0"
           />
           Entrar no grupo e economizar
         </a>
