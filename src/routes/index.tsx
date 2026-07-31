@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
         content:
           "Entre gratuitamente no grupo VIP Pedal em Ofertas: cupons secretos e promoções de bikes, peças, acessórios e fitness na Shopee, Mercado Livre e Amazon.",
       },
-      { property: "og:title", content: "Pedal em Ofertas — Grupo VIP de Ofertas Secretas" },
+      { property: "og:title", content: "Pedal em Oferta — Grupo VIP de Ofertas Secretas" },
       {
         property: "og:description",
         content: "Cupons secretos e promoções selecionadas de bikes, peças e acessórios. Entre grátis no WhatsApp.",
