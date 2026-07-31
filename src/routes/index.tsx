@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, BadgeCheck } from "lucide-react";
 import logo from "@/assets/pedal-logo.png.asset.json";
-import appIcon from "@/assets/app-icon.png";
+import appIcon from "@/assets/whatsapp-icon.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
