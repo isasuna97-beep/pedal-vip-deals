@@ -28,11 +28,19 @@ export const Route = createFileRoute("/")({
 const WHATSAPP_URL =
   "https://chat.whatsapp.com/DzkCF5hSe8EEtiHh7PHkII?s=cl&p=a&mlu=0&amv=1";
 
-const NOMES = [
+const NOMES_FEM = [
   "Maria", "Ana", "Juliana", "Fernanda", "Camila", "Patrícia", "Larissa",
   "Amanda", "Beatriz", "Carolina", "Gabriela", "Letícia", "Bruna", "Aline",
   "Vanessa", "Rafaela", "Débora", "Priscila", "Tatiane", "Sabrina", "Jéssica",
   "Renata", "Luciana", "Mariana", "Bianca", "Cristiane", "Simone", "Natália",
+];
+
+const NOMES_MASC = [
+  "João", "Pedro", "Carlos", "Bruno", "Rafael", "Lucas", "Gabriel", "Felipe",
+  "Rodrigo", "Marcos", "André", "Thiago", "Eduardo", "Ricardo", "Marcelo",
+  "Gustavo", "Diego", "Vinícius", "Leonardo", "Daniel", "Fábio", "Rafael",
+  "Caio", "Matheus", "Henrique", "Guilherme", "Rogério", "Alexandre", "Júlio",
+  "Paulo", "Roberto", "Fernando", "Sérgio", "Maurício", "Evandro",
 ];
 
 declare global {
@@ -54,7 +62,9 @@ function Notifications() {
       const delay = 4000 + Math.random() * 3000;
       timeout = setTimeout(() => {
         const id = ++counter;
-        const nome = NOMES[Math.floor(Math.random() * NOMES.length)];
+        const isMasc = Math.random() < 0.7;
+        const pool = isMasc ? NOMES_MASC : NOMES_FEM;
+        const nome = pool[Math.floor(Math.random() * pool.length)];
         setItems((prev) => [...prev, { id, nome }]);
         setTimeout(() => {
           setItems((prev) => prev.filter((i) => i.id !== id));
