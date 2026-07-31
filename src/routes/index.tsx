@@ -152,8 +152,13 @@ function Index() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleClick}
-          className="animate-pulse-cta mt-6 block w-full rounded-full bg-primary px-5 py-4 text-base font-extrabold uppercase tracking-wide text-primary-foreground transition-transform active:scale-95"
+          className="animate-pulse-cta mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-whatsapp px-5 py-4 text-base font-extrabold uppercase tracking-wide text-whatsapp-foreground transition-transform active:scale-95"
         >
+          <img
+            src={whatsappIcon.url}
+            alt="Ícone do WhatsApp"
+            className="size-7 shrink-0 rounded-md"
+          />
           Entrar no grupo e economizar
         </a>
 
