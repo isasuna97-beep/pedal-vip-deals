@@ -68,7 +68,7 @@ Instale o evento padrão de lead do meta no botão
 
 <button onclick="fbq('track', 'Lead')>
 
-Link do botão: https://pedalemoferta.lucreshop.com.br/whatsapp/488ZftC
+Link do botão: https://chat.whatsapp.com/DzkCF5hSe8EEtiHh7PHkII?s=cl&p=a&mlu=0&amv=1
 
 This project was built with [Lovable](https://lovable.dev).
 

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, BadgeCheck } from "lucide-react";
 import logo from "@/assets/pedal-logo.png.asset.json";
-import appIcon from "@/assets/whatsapp-icon.png";
+import whatsappIcon from "@/assets/whatsapp-icon.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Pedal em Oferta — Grupo VIP de Ofertas Secretas" },
       {
         property: "og:description",
-        content: "Cupons secretos e promoções selecionadas de bikes, peças e acessórios. Entre grátis no App.",
+        content: "Cupons secretos e promoções selecionadas de bikes, peças e acessórios. Entre grátis no WhatsApp.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -25,8 +25,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const APP_URL =
-  "https://chat.app.com/DzkCF5hSe8EEtiHh7PHkII?s=cl&p=a&mlu=0&amv=1";
+const WHATSAPP_URL =
+  "https://chat.whatsapp.com/DzkCF5hSe8EEtiHh7PHkII?s=cl&p=a&mlu=0&amv=1";
 
 const NOMES_FEM = [
   "Maria", "Ana", "Juliana", "Fernanda", "Camila", "Patrícia", "Larissa",
@@ -159,22 +159,22 @@ function Index() {
         </ul>
 
         <a
-          href={APP_URL}
+          href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleClick}
-          className="animate-pulse-cta mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-app px-5 py-4 text-base font-extrabold uppercase tracking-wide text-app-foreground transition-transform active:scale-95"
+          className="animate-pulse-cta mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-whatsapp px-5 py-4 text-base font-extrabold uppercase tracking-wide text-whatsapp-foreground transition-transform active:scale-95"
         >
           <img
-            src={appIcon}
-            alt="Ícone do App"
+            src={whatsappIcon}
+            alt="Ícone do WhatsApp"
             className="size-7 shrink-0"
           />
           Entrar no grupo e economizar
         </a>
 
         <p className="mt-3 text-sm text-muted-foreground">
-          Mais de <span className="font-bold text-foreground">5 mil pessoas</span> já economizam
+          Mais de <span className="font-bold text-foreground">30 mil pessoas</span> já economizam
           todos os dias no grupo
         </p>
       </section>
