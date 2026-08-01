@@ -17,26 +17,26 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 function MetaPixel() {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const w = window as unknown as Record<string, unknown>;
-    const fbq = function (...args: unknown[]) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (fbq as any).callMethod
-        ? (fbq as any).callMethod.apply(fbq, args)
-        : (fbq as any).queue.push(args);
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    const w = window as any;
+    if (w.fbq) return;
+    const n: any = function (...args: any[]) {
+      n.callMethod ? n.callMethod.apply(n, args) : n.queue.push(args);
     };
-    (fbq as unknown as { queue: unknown[] }).queue = [];
-    (fbq as unknown as { loaded: boolean }).loaded = true;
-    (fbq as unknown as { version: string }).version = "2.0";
-    w.fbq = fbq;
-    w._fbq = fbq;
+    if (!w._fbq) w._fbq = n;
+    n.push = n;
+    n.loaded = true;
+    n.version = "2.0";
+    n.queue = [];
     const t = document.createElement("script");
     t.async = true;
     t.src = "https://connect.facebook.net/en_US/fbevents.js";
     const s = document.getElementsByTagName("script")[0];
     s.parentNode?.insertBefore(t, s);
-    // init + PageView
-    (w.fbq as unknown as (event: string, id?: string) => void)("init", "873260148500543");
-    (w.fbq as unknown as (event: string) => void)("track", "PageView");
+    w.fbq = n;
+    n("init", "873260148500543");
+    n("track", "PageView");
+    /* eslint-enable @typescript-eslint/no-explicit-any */
   }, []);
 
   return (
