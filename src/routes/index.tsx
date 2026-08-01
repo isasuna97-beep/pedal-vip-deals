@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 });
 
 const WHATSAPP_URL =
-  "https://pedalemoferta.lucreshop.com.br/whatsapp/488ZftC";
+  "https://chat.whatsapp.com/DzkCF5hSe8EEtiHh7PHkII?s=cl&p=a&ilr=4";
 
 const NOMES_FEM = [
   "Maria", "Ana", "Juliana", "Fernanda", "Camila", "Patrícia", "Larissa",
@@ -160,8 +160,6 @@ function Index() {
 
         <a
           href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
           onClick={handleClick}
           className="animate-pulse-cta mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-whatsapp px-5 py-4 text-base font-extrabold uppercase tracking-wide text-whatsapp-foreground transition-transform active:scale-95"
         >
@@ -174,7 +172,7 @@ function Index() {
         </a>
 
         <p className="mt-3 text-sm text-muted-foreground">
-          Mais de <span className="font-bold text-foreground">30 mil pessoas</span> já economizam
+          Mais de <span className="font-bold text-foreground">2 mil pessoas</span> já economizam
           todos os dias no grupo
         </p>
       </section>
