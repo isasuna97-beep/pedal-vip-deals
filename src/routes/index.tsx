@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Check, BadgeCheck } from "lucide-react";
 import logo from "@/assets/pedal-logo.png.asset.json";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
+import { trackLeadOnce } from "@/lib/meta-pixel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
