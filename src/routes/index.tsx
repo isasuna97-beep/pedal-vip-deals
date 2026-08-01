@@ -76,17 +76,17 @@ function Notifications() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed bottom-32 right-3 z-50 flex w-[15rem] flex-col gap-2">
+    <div className="pointer-events-none fixed right-2 top-2 z-50 flex w-[11rem] flex-col gap-1.5">
       {items.map((item) => (
         <div
           key={item.id}
-          className="animate-notif rounded-xl border border-border bg-card px-3 py-2 shadow-soft"
+          className="animate-notif rounded-lg border border-border bg-card px-2.5 py-1.5 shadow-soft"
         >
-          <div className="flex min-w-0 items-center gap-2">
-            <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
-              <Check className="size-3.5" strokeWidth={3} />
+          <div className="flex min-w-0 items-center gap-1.5">
+            <span className="grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+              <Check className="size-3" strokeWidth={3} />
             </span>
-            <p className="truncate text-xs font-medium text-foreground">
+            <p className="truncate text-[11px] font-medium text-foreground">
               <span className="font-bold">{item.nome}</span> entrou no grupo
             </p>
           </div>

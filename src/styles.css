@@ -120,14 +120,14 @@
   --whatsapp: oklch(0.62 0.16 155);
   --whatsapp-foreground: oklch(1 0 0);
 
-  /* Fundo cinza médio ≈ #666666 */
-  --background: oklch(0.44 0 0);
+  /* Fundo Anthracite Black ≈ #252729 */
+  --background: oklch(0.18 0.006 264);
   --foreground: oklch(0.97 0.005 80);
 
-  /* Cards levemente mais claros para contraste no cinza */
-  --card: oklch(0.52 0 0);
+  /* Cards levemente mais claros */
+  --card: oklch(0.23 0.006 264);
   --card-foreground: oklch(0.97 0.005 80);
-  --popover: oklch(0.52 0 0);
+  --popover: oklch(0.23 0.006 264);
   --popover-foreground: oklch(0.97 0.005 80);
 
   /* Laranja elétrico — cor da marca */
@@ -135,24 +135,24 @@
   --primary-foreground: oklch(1 0 0);
 
   /* Secundário */
-  --secondary: oklch(0.52 0 0);
+  --secondary: oklch(0.23 0.006 264);
   --secondary-foreground: oklch(0.90 0.005 80);
 
   /* Muted */
-  --muted: oklch(0.52 0 0);
-  --muted-foreground: oklch(0.88 0 0);
+  --muted: oklch(0.23 0.006 264);
+  --muted-foreground: oklch(0.65 0.005 264);
 
   /* Accent */
-  --accent: oklch(0.52 0.02 46);
+  --accent: oklch(0.23 0.020 46);
   --accent-foreground: oklch(0.70 0.21 46);
 
   /* Destructive */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
 
-  /* Bordas — mais escuras para serem visíveis no cinza */
-  --border: oklch(0.35 0 0);
-  --input: oklch(0.35 0 0);
+  /* Bordas */
+  --border: oklch(0.30 0.008 264);
+  --input: oklch(0.30 0.008 264);
   --ring: oklch(0.70 0.21 46);
 
   /* Badge verificado */
@@ -169,14 +169,14 @@
   --chart-5: oklch(0.769 0.188 70.080);
 
   /* Sidebar */
-  --sidebar: oklch(0.52 0 0);
+  --sidebar: oklch(0.23 0.006 264);
   --sidebar-foreground: oklch(0.97 0.005 80);
   --sidebar-primary: oklch(0.70 0.21 46);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.52 0 0);
+  --sidebar-accent: oklch(0.23 0.006 264);
   --sidebar-accent-foreground: oklch(0.97 0.005 80);
-  --sidebar-border: oklch(0.35 0 0);
-  --sidebar-ring: oklch(0.58 0 0);
+  --sidebar-border: oklch(0.30 0.008 264);
+  --sidebar-ring: oklch(0.55 0.005 264);
 }
 
 /* .dark mantido para compatibilidade futura */
@@ -226,7 +226,7 @@
     background-image: linear-gradient(
       155deg,
       transparent 0%,
-      oklch(0.42 0.02 46 / 0.18) 100%
+      oklch(0.20 0.03 46 / 0.12) 100%
     );
     min-height: 100svh;
     color: var(--color-foreground);
