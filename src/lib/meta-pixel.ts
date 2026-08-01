@@ -1,50 +1,39 @@
 // Meta Pixel helper — ID 1720076819212350
 // Fires a single Lead event (once per browser session) on the CTA click.
 
-declare global {
-  interface Window {
-    fbq?: FbqFn;
-    _fbq?: FbqFn;
-  }
-}
-
-type FbqFn = ((...args: unknown[]) => void) & {
-  callMethod?: (...args: unknown[]) => void;
-  queue?: unknown[];
-  push?: (...args: unknown[]) => void;
-  loaded?: boolean;
-  version?: string;
-};
-
 export const META_PIXEL_ID = "1720076819212350";
 const LEAD_FLAG = "pedal_meta_lead_tracked";
 
 /** Initialise the Meta Pixel base code and fire PageView. Safe to call once on app mount. */
 export function initMetaPixel(): void {
   if (typeof window === "undefined" || typeof document === "undefined") return;
-  if (window.fbq) return; // already initialised
+  const w = window as unknown as {
+    fbq?: ((...args: unknown[]) => void) & { callMethod?: (...a: unknown[]) => void; queue?: unknown[][]; loaded?: boolean; version?: string };
+    _fbq?: unknown;
+  };
+  if (w.fbq) return; // already initialised
 
-  (function (f: Window, b: Document, e: string, v: string) {
-    let n: FbqFn, t: HTMLScriptElement, s: HTMLScriptElement;
-    if (f.fbq) return;
-    // eslint-disable-next-line prefer-const
-    n = (f.fbq = function (this: FbqFn, ...args: unknown[]) {
-      n.callMethod ? n.callMethod.apply(n, args) : n.queue!.push(args);
-    }) as FbqFn;
-    if (!f._fbq) f._fbq = n;
-    n.push = n;
-    n.loaded = true;
-    n.version = "2.0";
-    n.queue = [];
-    t = b.createElement(e) as HTMLScriptElement;
-    t.async = true;
-    t.src = v;
-    s = b.getElementsByTagName(e)[0] as HTMLScriptElement;
-    s.parentNode?.insertBefore(t, s);
-  })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+  const n = ((...args: unknown[]) => {
+    if (n.callMethod) n.callMethod.apply(n, args);
+    else (n.queue ||= []).push(args);
+  }) as ((...args: unknown[]) => void) & { callMethod?: (...a: unknown[]) => void; queue?: unknown[][]; loaded?: boolean; version?: string; push?: (...a: unknown[]) => void };
 
-  window.fbq?.("init", META_PIXEL_ID);
-  window.fbq?.("track", "PageView");
+  n.queue = [];
+  n.loaded = true;
+  n.version = "2.0";
+  n.push = n;
+
+  w.fbq = n;
+  if (!w._fbq) w._fbq = n;
+
+  const t = document.createElement("script");
+  t.async = true;
+  t.src = "https://connect.facebook.net/en_US/fbevents.js";
+  const s = document.getElementsByTagName("script")[0];
+  s?.parentNode?.insertBefore(t, s);
+
+  n("init", META_PIXEL_ID);
+  n("track", "PageView");
 }
 
 /**
@@ -58,7 +47,7 @@ export function trackLeadOnce(): void {
   } catch {
     /* sessionStorage unavailable (private mode) — fall through */
   }
-  window.fbq?.("track", "Lead");
+  (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.("track", "Lead");
   try {
     window.sessionStorage.setItem(LEAD_FLAG, "1");
   } catch {
