@@ -12,6 +12,46 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+// ─── Meta Pixel (base code) ───────────────────────────────────────────────────
+// Runs once on the client after hydration to initialize fbq and fire PageView.
+function MetaPixel() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const w = window as unknown as Record<string, unknown>;
+    const fbq = function (...args: unknown[]) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (fbq as any).callMethod
+        ? (fbq as any).callMethod.apply(fbq, args)
+        : (fbq as any).queue.push(args);
+    };
+    (fbq as unknown as { queue: unknown[] }).queue = [];
+    (fbq as unknown as { loaded: boolean }).loaded = true;
+    (fbq as unknown as { version: string }).version = "2.0";
+    w.fbq = fbq;
+    w._fbq = fbq;
+    const t = document.createElement("script");
+    t.async = true;
+    t.src = "https://connect.facebook.net/en_US/fbevents.js";
+    const s = document.getElementsByTagName("script")[0];
+    s.parentNode?.insertBefore(t, s);
+    // init + PageView
+    (w.fbq as unknown as (event: string, id?: string) => void)("init", "873260148500543");
+    (w.fbq as unknown as (event: string) => void)("track", "PageView");
+  }, []);
+
+  return (
+    <noscript>
+      <img
+        height={1}
+        width={1}
+        style={{ display: "none" }}
+        src="https://www.facebook.com/tr?id=1720076819212350&ev=PageView&noscript=1"
+        alt=""
+      />
+    </noscript>
+  );
+}
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
