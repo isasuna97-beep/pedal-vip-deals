@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Check, BadgeCheck } from "lucide-react";
 import logo from "@/assets/pedal-logo.png.asset.json";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
-import { trackLeadOnce } from "@/lib/meta-pixel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -153,7 +152,6 @@ function Index() {
 
         <Link
           to="/grupo"
-          onClick={trackLeadOnce}
           className="animate-pulse-cta mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-whatsapp px-5 py-4 text-base font-extrabold uppercase tracking-wide text-whatsapp-foreground transition-transform active:scale-95"
         >
           <img

@@ -17,6 +17,7 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+
 const GrupoRoute = GrupoRouteImport.update({
   id: '/grupo',
   path: '/grupo',
