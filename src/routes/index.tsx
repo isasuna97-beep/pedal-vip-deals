@@ -109,7 +109,7 @@ function Index() {
       <Notifications />
 
       <div className="w-full bg-primary px-4 py-3 text-center">
-        <p className="text-sm font-extrabold uppercase tracking-wide text-primary-foreground">
+        <p className="text-xs font-extrabold uppercase tracking-wide text-primary-foreground whitespace-nowrap">
           🔥 Grupo VIP Gratuito &mdash; Vagas Limitadas 🔥
         </p>
       </div>
