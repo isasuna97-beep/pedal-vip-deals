@@ -42,11 +42,6 @@ const NOMES_MASC = [
   "Paulo", "Roberto", "Fernando", "Sérgio", "Maurício", "Evandro",
 ];
 
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-  }
-}
 
 type Notif = { id: number; nome: string };
 

@@ -41,23 +41,11 @@ function buildLinks() {
   return { appProtocol, webLink, isAndroid, isIOS, intentLink };
 }
 
-// ─── Proteção contra disparo duplo de Lead ───────────────────────────────────
-// Flag de módulo: vive no bundle JS do cliente, sobrevive a qualquer
-// remontagem do React (SSR hydration, StrictMode, re-navegação).
-// Reseta apenas com refresh completo — comportamento correto por sessão.
-let leadFired = false;
 
 // ─── component ───────────────────────────────────────────────────────────────
 
 function Grupo() {
   useEffect(() => {
-    // ✅ Lead dispara UMA única vez por sessão de browser,
-    //    imediatamente antes da tentativa de abrir o WhatsApp.
-    if (!leadFired) {
-      leadFired = true;
-      window.fbq?.("track", "Lead");
-    }
-
     const { appProtocol, webLink, isAndroid, isIOS, intentLink } = buildLinks();
     const inApp = getInApp();
 
