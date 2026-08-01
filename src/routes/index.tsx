@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, BadgeCheck } from "lucide-react";
 import logo from "@/assets/pedal-logo.png.asset.json";
@@ -25,8 +25,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const WHATSAPP_URL =
-  "https://chat.whatsapp.com/DzkCF5hSe8EEtiHh7PHkII?s=cl&p=a&ilr=4";
+
 
 const NOMES_FEM = [
   "Maria", "Ana", "Juliana", "Fernanda", "Camila", "Patrícia", "Larissa",
@@ -104,9 +103,6 @@ const BENEFITS = [
 ];
 
 function Index() {
-  const handleClick = () => {
-    window.fbq?.("track", "Lead");
-  };
 
   return (
     <main className="min-h-screen bg-background">
@@ -158,9 +154,8 @@ function Index() {
           ))}
         </ul>
 
-        <a
-          href={WHATSAPP_URL}
-          onClick={handleClick}
+        <Link
+          to="/grupo"
           className="animate-pulse-cta mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-whatsapp px-5 py-4 text-base font-extrabold uppercase tracking-wide text-whatsapp-foreground transition-transform active:scale-95"
         >
           <img
@@ -169,7 +164,7 @@ function Index() {
             className="size-7 shrink-0"
           />
           Entrar no grupo e economizar
-        </a>
+        </Link>
 
         <p className="mt-3 text-sm text-muted-foreground">
           Mais de <span className="font-bold text-foreground">2 mil pessoas</span> já economizam
