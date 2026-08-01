@@ -68,16 +68,23 @@
   --animate-blink: blink-dot 1.4s ease-in-out infinite;
 }
 
-/* CTA pulsa com brilho verde WhatsApp */
+/* CTA — efeito letreiro neon verde */
 @keyframes pulse-cta {
   0%,
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 oklch(0.62 0.16 155 / 0.6);
+    box-shadow:
+      0 0  6px oklch(0.62 0.16 155),
+      0 0 18px oklch(0.62 0.16 155 / 0.75),
+      0 0 32px oklch(0.62 0.16 155 / 0.40);
   }
   50% {
     transform: scale(1.035);
-    box-shadow: 0 0 0 16px oklch(0.62 0.16 155 / 0);
+    box-shadow:
+      0 0 10px oklch(0.62 0.16 155),
+      0 0 30px oklch(0.62 0.16 155 / 0.85),
+      0 0 55px oklch(0.62 0.16 155 / 0.55),
+      0 0 80px oklch(0.62 0.16 155 / 0.20);
   }
 }
 
@@ -113,39 +120,39 @@
   --whatsapp: oklch(0.62 0.16 155);
   --whatsapp-foreground: oklch(1 0 0);
 
-  /* Fundo carvão escuro */
-  --background: oklch(0.13 0.012 264);
-  --foreground: oklch(0.96 0.008 75);
+  /* Fundo cinza médio ≈ #666666 */
+  --background: oklch(0.44 0 0);
+  --foreground: oklch(0.97 0.005 80);
 
-  /* Cards dark */
-  --card: oklch(0.19 0.012 264);
-  --card-foreground: oklch(0.96 0.008 75);
-  --popover: oklch(0.19 0.012 264);
-  --popover-foreground: oklch(0.96 0.008 75);
+  /* Cards levemente mais claros para contraste no cinza */
+  --card: oklch(0.52 0 0);
+  --card-foreground: oklch(0.97 0.005 80);
+  --popover: oklch(0.52 0 0);
+  --popover-foreground: oklch(0.97 0.005 80);
 
   /* Laranja elétrico — cor da marca */
   --primary: oklch(0.70 0.21 46);
   --primary-foreground: oklch(1 0 0);
 
   /* Secundário */
-  --secondary: oklch(0.22 0.015 264);
-  --secondary-foreground: oklch(0.90 0.008 75);
+  --secondary: oklch(0.52 0 0);
+  --secondary-foreground: oklch(0.90 0.005 80);
 
   /* Muted */
-  --muted: oklch(0.22 0.015 264);
-  --muted-foreground: oklch(0.58 0.010 264);
+  --muted: oklch(0.52 0 0);
+  --muted-foreground: oklch(0.88 0 0);
 
   /* Accent */
-  --accent: oklch(0.22 0.025 46);
+  --accent: oklch(0.52 0.02 46);
   --accent-foreground: oklch(0.70 0.21 46);
 
   /* Destructive */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
 
-  /* Bordas */
-  --border: oklch(0.26 0.015 264);
-  --input: oklch(0.26 0.015 264);
+  /* Bordas — mais escuras para serem visíveis no cinza */
+  --border: oklch(0.35 0 0);
+  --input: oklch(0.35 0 0);
   --ring: oklch(0.70 0.21 46);
 
   /* Badge verificado */
@@ -162,14 +169,14 @@
   --chart-5: oklch(0.769 0.188 70.080);
 
   /* Sidebar */
-  --sidebar: oklch(0.19 0.012 264);
-  --sidebar-foreground: oklch(0.96 0.008 75);
+  --sidebar: oklch(0.52 0 0);
+  --sidebar-foreground: oklch(0.97 0.005 80);
   --sidebar-primary: oklch(0.70 0.21 46);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.22 0.015 264);
-  --sidebar-accent-foreground: oklch(0.96 0.008 75);
-  --sidebar-border: oklch(0.26 0.015 264);
-  --sidebar-ring: oklch(0.58 0.010 264);
+  --sidebar-accent: oklch(0.52 0 0);
+  --sidebar-accent-foreground: oklch(0.97 0.005 80);
+  --sidebar-border: oklch(0.35 0 0);
+  --sidebar-ring: oklch(0.58 0 0);
 }
 
 /* .dark mantido para compatibilidade futura */
@@ -215,11 +222,11 @@
 
   body {
     background-color: var(--color-background);
-    /* Gradiente sutil: carvão → toque laranja quente no canto — zero custo de renderização */
+    /* Gradiente sutil no cinza — zero custo de renderização */
     background-image: linear-gradient(
       155deg,
       transparent 0%,
-      oklch(0.16 0.04 46 / 0.20) 100%
+      oklch(0.42 0.02 46 / 0.18) 100%
     );
     min-height: 100svh;
     color: var(--color-foreground);

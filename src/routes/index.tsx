@@ -76,7 +76,7 @@ function Notifications() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed right-3 top-3 z-50 flex w-[15rem] flex-col gap-2">
+    <div className="pointer-events-none fixed bottom-32 right-3 z-50 flex w-[15rem] flex-col gap-2">
       {items.map((item) => (
         <div
           key={item.id}
@@ -99,7 +99,7 @@ function Notifications() {
 const BENEFITS = [
   { emoji: "🚵", text: "Bikes e peças com os melhores preços" },
   { emoji: "⚡", text: "Cupons VIP antes de qualquer um" },
-  { emoji: "🚪", text: "Grátis · Saia quando quiser" },
+  { emoji: "✨", text: "Apenas promoções selecionadas" },
 ];
 
 function Index() {
@@ -168,7 +168,8 @@ function Index() {
         </Link>
 
         <p className="mt-3 text-sm text-muted-foreground">
-          ✅ <span className="font-bold text-foreground">Grátis</span> · Sem spam · Saia quando quiser
+          Mais de <span className="font-bold text-foreground">2 mil pessoas</span> já economizam
+          todos os dias no grupo
         </p>
       </section>
     </main>
