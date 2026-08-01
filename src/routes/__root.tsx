@@ -34,7 +34,7 @@ function MetaPixel() {
     const s = document.getElementsByTagName("script")[0];
     s.parentNode?.insertBefore(t, s);
     w.fbq = n;
-    n("init", "873260148500543");
+    n("init", "1720076819212350");
     n("track", "PageView");
     /* eslint-enable @typescript-eslint/no-explicit-any */
   }, []);
