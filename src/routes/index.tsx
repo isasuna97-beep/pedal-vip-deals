@@ -97,9 +97,9 @@ function Notifications() {
 }
 
 const BENEFITS = [
-  { emoji: "🎁", text: "Cupons Secretos" },
-  { emoji: "✨", text: "Apenas promoções selecionadas" },
-  { emoji: "🚪", text: "Pode sair quando quiser" },
+  { emoji: "🚵", text: "Bikes e peças com os melhores preços" },
+  { emoji: "⚡", text: "Cupons VIP antes de qualquer um" },
+  { emoji: "🚪", text: "Grátis · Saia quando quiser" },
 ];
 
 function Index() {
@@ -110,7 +110,7 @@ function Index() {
 
       <div className="w-full bg-primary px-4 py-3 text-center">
         <p className="text-sm font-extrabold uppercase tracking-wide text-primary-foreground">
-          🎁 Participe do grupo de forma gratuita 🎉
+          🔥 Grupo VIP Gratuito &mdash; Vagas Limitadas 🔥
         </p>
       </div>
 
@@ -136,8 +136,9 @@ function Index() {
         </h1>
 
         <div className="mt-3 rounded-full border-2 border-primary/40 bg-primary/10 px-4 py-1.5">
-          <span className="text-sm font-bold text-primary">
-            Chegou a hora de economizar! 💰
+          <span className="inline-flex items-center gap-1.5 text-sm font-bold text-primary">
+            <span className="inline-block size-2 rounded-full bg-primary animate-blink" />
+            ⏰ Últimas vagas disponíveis hoje
           </span>
         </div>
 
@@ -167,8 +168,7 @@ function Index() {
         </Link>
 
         <p className="mt-3 text-sm text-muted-foreground">
-          Mais de <span className="font-bold text-foreground">2 mil pessoas</span> já economizam
-          todos os dias no grupo
+          ✅ <span className="font-bold text-foreground">Grátis</span> · Sem spam · Saia quando quiser
         </p>
       </section>
     </main>

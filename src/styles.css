@@ -65,17 +65,19 @@
   --shadow-soft: var(--shadow-soft);
   --animate-pulse-cta: pulse-cta 1.8s ease-in-out infinite;
   --animate-notif: notif 3.8s ease forwards;
+  --animate-blink: blink-dot 1.4s ease-in-out infinite;
 }
 
+/* CTA pulsa com brilho verde WhatsApp */
 @keyframes pulse-cta {
   0%,
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 oklch(0.62 0.16 155 / 0.55);
+    box-shadow: 0 0 0 0 oklch(0.62 0.16 155 / 0.6);
   }
   50% {
     transform: scale(1.035);
-    box-shadow: 0 0 0 14px oklch(0.62 0.16 155 / 0);
+    box-shadow: 0 0 0 16px oklch(0.62 0.16 155 / 0);
   }
 }
 
@@ -95,49 +97,82 @@
   }
 }
 
-
-:root {
-  color-scheme: light only;
-  --radius: 0.625rem;
-  --whatsapp: oklch(0.62 0.16 155);
-  --whatsapp-foreground: oklch(1 0 0);
-  --background: oklch(0.98 0.03 75);
-  --foreground: oklch(0.18 0.01 60);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.01 60);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.01 60);
-  --primary: oklch(0.68 0.19 48);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.96 0.015 70);
-  --secondary-foreground: oklch(0.25 0.02 60);
-  --muted: oklch(0.96 0.012 70);
-  --muted-foreground: oklch(0.52 0.02 60);
-  --accent: oklch(0.95 0.04 60);
-  --accent-foreground: oklch(0.3 0.06 48);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.91 0.012 70);
-  --input: oklch(0.91 0.012 70);
-  --ring: oklch(0.68 0.19 48);
-  --verified: oklch(0.62 0.15 240);
-  --shadow-soft: 0 8px 24px -8px oklch(0.68 0.19 48 / 0.35);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+/* Dot piscante para urgência */
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.15; }
 }
 
+/* ─── Tema escuro esportivo ─────────────────────────────────────────────────── */
 
+:root {
+  color-scheme: dark;
+  --radius: 0.625rem;
+
+  /* WhatsApp */
+  --whatsapp: oklch(0.62 0.16 155);
+  --whatsapp-foreground: oklch(1 0 0);
+
+  /* Fundo carvão escuro */
+  --background: oklch(0.13 0.012 264);
+  --foreground: oklch(0.96 0.008 75);
+
+  /* Cards dark */
+  --card: oklch(0.19 0.012 264);
+  --card-foreground: oklch(0.96 0.008 75);
+  --popover: oklch(0.19 0.012 264);
+  --popover-foreground: oklch(0.96 0.008 75);
+
+  /* Laranja elétrico — cor da marca */
+  --primary: oklch(0.70 0.21 46);
+  --primary-foreground: oklch(1 0 0);
+
+  /* Secundário */
+  --secondary: oklch(0.22 0.015 264);
+  --secondary-foreground: oklch(0.90 0.008 75);
+
+  /* Muted */
+  --muted: oklch(0.22 0.015 264);
+  --muted-foreground: oklch(0.58 0.010 264);
+
+  /* Accent */
+  --accent: oklch(0.22 0.025 46);
+  --accent-foreground: oklch(0.70 0.21 46);
+
+  /* Destructive */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+
+  /* Bordas */
+  --border: oklch(0.26 0.015 264);
+  --input: oklch(0.26 0.015 264);
+  --ring: oklch(0.70 0.21 46);
+
+  /* Badge verificado */
+  --verified: oklch(0.62 0.15 240);
+
+  /* Sombra com brilho laranja */
+  --shadow-soft: 0 8px 24px -8px oklch(0.70 0.21 46 / 0.45);
+
+  /* Charts */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.600 0.118 184.704);
+  --chart-3: oklch(0.398 0.070 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.080);
+
+  /* Sidebar */
+  --sidebar: oklch(0.19 0.012 264);
+  --sidebar-foreground: oklch(0.96 0.008 75);
+  --sidebar-primary: oklch(0.70 0.21 46);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.22 0.015 264);
+  --sidebar-accent-foreground: oklch(0.96 0.008 75);
+  --sidebar-border: oklch(0.26 0.015 264);
+  --sidebar-ring: oklch(0.58 0.010 264);
+}
+
+/* .dark mantido para compatibilidade futura */
 .dark {
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
@@ -180,6 +215,19 @@
 
   body {
     background-color: var(--color-background);
+    /* Gradiente sutil: carvão → toque laranja quente no canto — zero custo de renderização */
+    background-image: linear-gradient(
+      155deg,
+      transparent 0%,
+      oklch(0.16 0.04 46 / 0.20) 100%
+    );
+    min-height: 100svh;
     color: var(--color-foreground);
+  }
+}
+
+@layer utilities {
+  .animate-blink {
+    animation: blink-dot 1.4s ease-in-out infinite;
   }
 }
