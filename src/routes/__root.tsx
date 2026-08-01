@@ -12,46 +12,6 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
-// ─── Meta Pixel (base code) ───────────────────────────────────────────────────
-// Runs once on the client after hydration to initialize fbq and fire PageView.
-function MetaPixel() {
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    /* eslint-disable @typescript-eslint/no-explicit-any */
-    const w = window as any;
-    if (w.fbq) return;
-    const n: any = function (...args: any[]) {
-      n.callMethod ? n.callMethod.apply(n, args) : n.queue.push(args);
-    };
-    if (!w._fbq) w._fbq = n;
-    n.push = n;
-    n.loaded = true;
-    n.version = "2.0";
-    n.queue = [];
-    const t = document.createElement("script");
-    t.async = true;
-    t.src = "https://connect.facebook.net/en_US/fbevents.js";
-    const s = document.getElementsByTagName("script")[0];
-    s.parentNode?.insertBefore(t, s);
-    w.fbq = n;
-    n("init", "1720076819212350");
-    n("track", "PageView");
-    /* eslint-enable @typescript-eslint/no-explicit-any */
-  }, []);
-
-  return (
-    <noscript>
-      <img
-        height={1}
-        width={1}
-        style={{ display: "none" }}
-        src="https://www.facebook.com/tr?id=1720076819212350&ev=PageView&noscript=1"
-        alt=""
-      />
-    </noscript>
-  );
-}
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -169,8 +129,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Meta Pixel base code — initializes fbq + fires PageView on every page */}
-      <MetaPixel />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

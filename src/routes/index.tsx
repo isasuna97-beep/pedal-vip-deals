@@ -152,13 +152,6 @@ function Index() {
 
         <Link
           to="/grupo"
-          onClick={() => {
-            // Meta Pixel standard Lead event
-            if (typeof window !== "undefined") {
-              const w = window as unknown as { fbq?: (...a: unknown[]) => void };
-              w.fbq?.("track", "Lead");
-            }
-          }}
           className="animate-pulse-cta mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-whatsapp px-5 py-4 text-base font-extrabold uppercase tracking-wide text-whatsapp-foreground transition-transform active:scale-95"
         >
           <img
