@@ -110,56 +110,56 @@
   50%       { opacity: 0.15; }
 }
 
-/* ─── Tema escuro esportivo ─────────────────────────────────────────────────── */
+/* ─── Tema claro esportivo ──────────────────────────────────────────────────── */
 
 :root {
-  color-scheme: dark;
+  color-scheme: light only;
   --radius: 0.625rem;
 
   /* WhatsApp */
   --whatsapp: oklch(0.62 0.16 155);
   --whatsapp-foreground: oklch(1 0 0);
 
-  /* Fundo Anthracite Black ≈ #252729 */
-  --background: oklch(0.18 0.006 264);
-  --foreground: oklch(0.97 0.005 80);
+  /* Fundo branco #FFFFFF */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.31 0.008 310); /* #39363D */
 
-  /* Cards levemente mais claros */
-  --card: oklch(0.23 0.006 264);
-  --card-foreground: oklch(0.97 0.005 80);
-  --popover: oklch(0.23 0.006 264);
-  --popover-foreground: oklch(0.97 0.005 80);
+  /* Cards */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.31 0.008 310);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.31 0.008 310);
 
-  /* Laranja elétrico — cor da marca */
-  --primary: oklch(0.70 0.21 46);
+  /* Laranja #FF5400 — cor da marca */
+  --primary: oklch(0.667 0.229 38.5);
   --primary-foreground: oklch(1 0 0);
 
-  /* Secundário */
-  --secondary: oklch(0.23 0.006 264);
-  --secondary-foreground: oklch(0.90 0.005 80);
+  /* Secundário — cinza grafite #47434C */
+  --secondary: oklch(0.965 0.002 310);
+  --secondary-foreground: oklch(0.37 0.012 310);
 
   /* Muted */
-  --muted: oklch(0.23 0.006 264);
-  --muted-foreground: oklch(0.65 0.005 264);
+  --muted: oklch(0.965 0.002 310);
+  --muted-foreground: oklch(0.50 0.010 310);
 
   /* Accent */
-  --accent: oklch(0.23 0.020 46);
-  --accent-foreground: oklch(0.70 0.21 46);
+  --accent: oklch(0.97 0.025 46);
+  --accent-foreground: oklch(0.667 0.229 38.5);
 
   /* Destructive */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
 
   /* Bordas */
-  --border: oklch(0.30 0.008 264);
-  --input: oklch(0.30 0.008 264);
-  --ring: oklch(0.70 0.21 46);
+  --border: oklch(0.91 0.004 310);
+  --input: oklch(0.91 0.004 310);
+  --ring: oklch(0.667 0.229 38.5);
 
   /* Badge verificado */
   --verified: oklch(0.62 0.15 240);
 
   /* Sombra com brilho laranja */
-  --shadow-soft: 0 8px 24px -8px oklch(0.70 0.21 46 / 0.45);
+  --shadow-soft: 0 8px 24px -8px oklch(0.667 0.229 38.5 / 0.35);
 
   /* Charts */
   --chart-1: oklch(0.646 0.222 41.116);
@@ -169,15 +169,16 @@
   --chart-5: oklch(0.769 0.188 70.080);
 
   /* Sidebar */
-  --sidebar: oklch(0.23 0.006 264);
-  --sidebar-foreground: oklch(0.97 0.005 80);
-  --sidebar-primary: oklch(0.70 0.21 46);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.31 0.008 310);
+  --sidebar-primary: oklch(0.667 0.229 38.5);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.23 0.006 264);
-  --sidebar-accent-foreground: oklch(0.97 0.005 80);
-  --sidebar-border: oklch(0.30 0.008 264);
-  --sidebar-ring: oklch(0.55 0.005 264);
+  --sidebar-accent: oklch(0.965 0.002 310);
+  --sidebar-accent-foreground: oklch(0.31 0.008 310);
+  --sidebar-border: oklch(0.91 0.004 310);
+  --sidebar-ring: oklch(0.667 0.229 38.5);
 }
+
 
 /* .dark mantido para compatibilidade futura */
 .dark {
@@ -222,12 +223,7 @@
 
   body {
     background-color: var(--color-background);
-    /* Gradiente sutil no cinza — zero custo de renderização */
-    background-image: linear-gradient(
-      155deg,
-      transparent 0%,
-      oklch(0.20 0.03 46 / 0.12) 100%
-    );
+    background-image: none;
     min-height: 100svh;
     color: var(--color-foreground);
   }
