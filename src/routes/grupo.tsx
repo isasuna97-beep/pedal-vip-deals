@@ -77,7 +77,7 @@ function Grupo() {
       >
         Se não abrir automaticamente,{" "}
         <a
-          href={WHATSAPP_LINK}
+          href={REDIRECT_LINK}
           style={{ color: "#25D366", fontWeight: 700, textDecoration: "none" }}
         >
           clique aqui
