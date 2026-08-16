@@ -11,7 +11,7 @@ export const Route = createFileRoute("/grupo")({
   component: Grupo,
 });
 
-const WHATSAPP_LINK = "https://chat.whatsapp.com/DzkCF5hSe8EEtiHh7PHkII";
+const WHATSAPP_LINK = "https://pedalemoferta.lucreshop.com.br/whatsapp/488ZftC";
 
 // ─── helpers (mesma lógica do mamaeeconomiza.site) ───────────────────────────
 
