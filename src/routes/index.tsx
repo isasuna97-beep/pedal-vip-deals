@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, BadgeCheck } from "lucide-react";
 import logo from "@/assets/pedal-logo.png.asset.json";
@@ -150,8 +150,8 @@ function Index() {
           ))}
         </ul>
 
-        <a
-          href="https://pedalemoferta.lucreshop.com.br/whatsapp/488ZftC"
+        <Link
+          to="/grupo"
           className="animate-pulse-cta mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-whatsapp px-5 py-4 text-base font-extrabold uppercase tracking-wide text-whatsapp-foreground transition-transform active:scale-95"
         >
           <img
@@ -160,7 +160,7 @@ function Index() {
             className="size-7 shrink-0"
           />
           Entrar no grupo e economizar
-        </a>
+        </Link>
 
         <p className="mt-3 text-sm text-muted-foreground">
           Mais de <span className="font-bold text-foreground">2 mil pessoas</span> já economizam
