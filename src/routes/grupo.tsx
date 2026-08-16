@@ -16,17 +16,17 @@ const REDIRECT_LINK = "https://pedalemoferta.lucreshop.com.br/whatsapp/488ZftC";
 // ─── component ───────────────────────────────────────────────────────────────
 
 function Grupo() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
   useEffect(() => {
+    setIsDesktop(!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent));
+
     // Redireciona para o link cadastrado após a análise/loading
     const timer = setTimeout(() => {
       window.location.href = REDIRECT_LINK;
     }, 1200);
     return () => clearTimeout(timer);
   }, []);
-
-  const isDesktop =
-    typeof window !== "undefined" &&
-    !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   return (
     <main
