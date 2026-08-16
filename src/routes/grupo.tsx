@@ -11,67 +11,17 @@ export const Route = createFileRoute("/grupo")({
   component: Grupo,
 });
 
-const WHATSAPP_LINK = "https://pedalemoferta.lucreshop.com.br/whatsapp/488ZftC";
-
-// ─── helpers (mesma lógica do mamaeeconomiza.site) ───────────────────────────
-
-function getInApp(): "tiktok" | "instagram" | "facebook" | "other" | false {
-  const ua =
-    navigator.userAgent || navigator.vendor || (window as Window & { opera?: string }).opera || "";
-  if (/TikTok/i.test(ua)) return "tiktok";
-  if (/Instagram/i.test(ua)) return "instagram";
-  if (/FBAN|FBAV/i.test(ua)) return "facebook";
-  if (/Line|KAKAOTALK|Twitter|Snapchat/i.test(ua)) return "other";
-  return false;
-}
-
-function isMobile(): boolean {
-  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-}
-
-function buildLinks() {
-  const inviteCode = WHATSAPP_LINK.split("chat.whatsapp.com/")[1];
-  const appProtocol = `whatsapp://chat?code=${inviteCode}`;
-  const webLink = `https://chat.whatsapp.com/${inviteCode}`;
-  const isAndroid = /Android/i.test(navigator.userAgent);
-  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-  const intentLink = isAndroid
-    ? `intent://chat?code=${inviteCode}#Intent;scheme=whatsapp;package=com.whatsapp;end`
-    : "";
-  return { appProtocol, webLink, isAndroid, isIOS, intentLink };
-}
-
+const REDIRECT_LINK = "https://pedalemoferta.lucreshop.com.br/whatsapp/488ZftC";
 
 // ─── component ───────────────────────────────────────────────────────────────
 
 function Grupo() {
   useEffect(() => {
-    const { appProtocol, webLink, isAndroid, isIOS, intentLink } = buildLinks();
-    const inApp = getInApp();
-
-    if (inApp === "tiktok") {
-      // TikTok tem restrições especiais de deep link
-      if (isAndroid && intentLink) {
-        setTimeout(() => (window.location.href = intentLink), 800);
-        setTimeout(() => (window.location.href = webLink), 1800);
-      } else if (isIOS) {
-        setTimeout(() => (window.location.href = webLink), 800);
-        setTimeout(() => (window.location.href = appProtocol), 1800);
-      } else {
-        window.location.href = webLink;
-      }
-    } else if (inApp) {
-      // Instagram, Facebook, outros browsers in-app
-      setTimeout(() => (window.location.href = webLink), 800);
-      setTimeout(() => (window.location.href = appProtocol), 1500);
-    } else if (isMobile()) {
-      // Mobile normal: abre app direto com fallback web
-      window.location.href = appProtocol;
-      setTimeout(() => (window.location.href = webLink), 1000);
-    } else {
-      // Desktop
-      setTimeout(() => (window.location.href = webLink), 500);
-    }
+    // Redireciona para o link cadastrado após a análise/loading
+    const timer = setTimeout(() => {
+      window.location.href = REDIRECT_LINK;
+    }, 1200);
+    return () => clearTimeout(timer);
   }, []);
 
   const isDesktop =
