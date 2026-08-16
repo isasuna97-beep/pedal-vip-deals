@@ -152,8 +152,6 @@ function Index() {
 
         <a
           href="https://pedalemoferta.lucreshop.com.br/whatsapp/488ZftC"
-          target="_blank"
-          rel="noopener noreferrer"
           className="animate-pulse-cta mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-whatsapp px-5 py-4 text-base font-extrabold uppercase tracking-wide text-whatsapp-foreground transition-transform active:scale-95"
         >
           <img
