@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, BadgeCheck } from "lucide-react";
 import logo from "@/assets/pedal-logo.png.asset.json";
