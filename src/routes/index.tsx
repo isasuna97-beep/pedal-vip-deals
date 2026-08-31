@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Check, BadgeCheck } from "lucide-react";
+import { Check, BadgeCheck, Settings } from "lucide-react";
 import logo from "@/assets/pedal-logo.png.asset.json";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
 
@@ -166,6 +166,14 @@ function Index() {
           Mais de <span className="font-bold text-foreground">2 mil pessoas</span> já economizam
           todos os dias no grupo
         </p>
+
+        <Link
+          to="/admin"
+          aria-label="Painel administrativo"
+          className="mt-8 text-background/0 opacity-20 transition-opacity hover:opacity-60"
+        >
+          <Settings className="size-4 text-muted-foreground" />
+        </Link>
       </section>
     </main>
   );
