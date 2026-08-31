@@ -11,7 +11,7 @@ export const Route = createFileRoute("/grupo")({
   component: Grupo,
 });
 
-const REDIRECT_LINK = "https://pedalemoferta.lucreshop.com.br/whatsapp/488ZftC";
+const REDIRECT_LINK = "https://chat.whatsapp.com/KnyYvtoZ0dcEjOWeRlUAcv";
 
 // ─── component ───────────────────────────────────────────────────────────────
 
