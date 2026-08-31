@@ -44,8 +44,10 @@ function Grupo() {
       .eq("is_active", true)
       .limit(1)
       .maybeSingle()
-      .then(({ data }) => go(data?.url ?? FALLBACK_LINK))
-      .catch(() => go(FALLBACK_LINK));
+      .then(
+        ({ data }) => go(data?.url ?? FALLBACK_LINK),
+        () => go(FALLBACK_LINK),
+      );
 
     return () => {
       cancelled = true;
