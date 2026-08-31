@@ -102,7 +102,7 @@ function Grupo() {
       >
         Se não abrir automaticamente,{" "}
         <a
-          href={REDIRECT_LINK}
+          href={link}
           style={{ color: "#25D366", fontWeight: 700, textDecoration: "none" }}
         >
           clique aqui
