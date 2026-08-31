@@ -166,6 +166,14 @@ function Index() {
           Mais de <span className="font-bold text-foreground">2 mil pessoas</span> já economizam
           todos os dias no grupo
         </p>
+
+        <Link
+          to="/admin"
+          aria-label="Painel administrativo"
+          className="mt-8 text-background/0 opacity-20 transition-opacity hover:opacity-60"
+        >
+          <Settings className="size-4 text-muted-foreground" />
+        </Link>
       </section>
     </main>
   );
