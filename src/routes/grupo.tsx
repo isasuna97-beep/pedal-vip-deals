@@ -42,7 +42,7 @@ function Grupo() {
     // Usa o link já pré-buscado na home, se disponível (redireciona na hora)
     let cached: string | null = null;
     try {
-      cached = sessionStorage.getItem("pedal_active_link");
+      cached = sessionStorage.getItem(ACTIVE_LINK_CACHE_KEY);
     } catch {
       cached = null;
     }
@@ -54,16 +54,8 @@ function Grupo() {
       };
     }
 
-    supabase
-      .from("whatsapp_links")
-      .select("url")
-      .eq("is_active", true)
-      .limit(1)
-      .maybeSingle()
-      .then(
-        ({ data }) => go(data?.url ?? FALLBACK_LINK),
-        () => go(FALLBACK_LINK),
-      );
+    void fetchActiveLink().then((url) => go(url ?? FALLBACK_LINK));
+
 
     return () => {
       cancelled = true;
