@@ -184,6 +184,10 @@ function Index() {
           <img
             src={whatsappIcon}
             alt="Ícone do WhatsApp"
+            width={28}
+            height={28}
+            loading="lazy"
+            decoding="async"
             className="size-7 shrink-0"
           />
           Entrar no grupo e economizar
