@@ -102,25 +102,16 @@ const BENEFITS = [
 function Index() {
   // Pré-busca o link ativo para que /grupo redirecione instantaneamente
   useEffect(() => {
-    supabase
-      .from("whatsapp_links")
-      .select("url")
-      .eq("is_active", true)
-      .limit(1)
-      .maybeSingle()
-      .then(
-        ({ data }) => {
-          if (data?.url) {
-            try {
-              sessionStorage.setItem("pedal_active_link", data.url);
-            } catch {
-              /* ignora */
-            }
-          }
-        },
-        () => {},
-      );
+    void fetchActiveLink().then((url) => {
+      if (!url) return;
+      try {
+        sessionStorage.setItem(ACTIVE_LINK_CACHE_KEY, url);
+      } catch {
+        /* ignora */
+      }
+    });
   }, []);
+
 
   return (
     <main className="min-h-screen bg-background">
