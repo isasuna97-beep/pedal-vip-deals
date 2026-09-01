@@ -10,9 +10,14 @@ export const Route = createFileRoute("/grupo")({
       { title: "Entrando no grupo… — Pedal em Oferta" },
       { name: "robots", content: "noindex,nofollow" },
     ],
+    links: [
+      { rel: "preconnect", href: "https://chat.whatsapp.com", crossOrigin: "" },
+      { rel: "dns-prefetch", href: "https://chat.whatsapp.com" },
+    ],
   }),
   component: Grupo,
 });
+
 
 // Fallback caso o link ativo não possa ser carregado
 const FALLBACK_LINK = "https://chat.whatsapp.com/KnyYvtoZ0dcEjOWeRlUAcv";
