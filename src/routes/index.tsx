@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, BadgeCheck, Settings } from "lucide-react";
-import { ACTIVE_LINK_CACHE_KEY, fetchActiveLink } from "@/lib/active-link";
+import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/pedal-logo.webp";
 import whatsappIcon from "@/assets/whatsapp-icon.webp";
 
@@ -102,16 +102,25 @@ const BENEFITS = [
 function Index() {
   // Pré-busca o link ativo para que /grupo redirecione instantaneamente
   useEffect(() => {
-    void fetchActiveLink().then((url) => {
-      if (!url) return;
-      try {
-        sessionStorage.setItem(ACTIVE_LINK_CACHE_KEY, url);
-      } catch {
-        /* ignora */
-      }
-    });
+    supabase
+      .from("whatsapp_links")
+      .select("url")
+      .eq("is_active", true)
+      .limit(1)
+      .maybeSingle()
+      .then(
+        ({ data }) => {
+          if (data?.url) {
+            try {
+              sessionStorage.setItem("pedal_active_link", data.url);
+            } catch {
+              /* ignora */
+            }
+          }
+        },
+        () => {},
+      );
   }, []);
-
 
   return (
     <main className="min-h-screen bg-background">
