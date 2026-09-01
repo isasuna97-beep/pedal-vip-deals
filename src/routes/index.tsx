@@ -100,6 +100,27 @@ const BENEFITS = [
 ];
 
 function Index() {
+  // Pré-busca o link ativo para que /grupo redirecione instantaneamente
+  useEffect(() => {
+    supabase
+      .from("whatsapp_links")
+      .select("url")
+      .eq("is_active", true)
+      .limit(1)
+      .maybeSingle()
+      .then(
+        ({ data }) => {
+          if (data?.url) {
+            try {
+              sessionStorage.setItem("pedal_active_link", data.url);
+            } catch {
+              /* ignora */
+            }
+          }
+        },
+        () => {},
+      );
+  }, []);
 
   return (
     <main className="min-h-screen bg-background">
