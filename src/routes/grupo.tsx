@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { ACTIVE_LINK_CACHE_KEY, fetchActiveLink } from "@/lib/active-link";
+
 
 
 export const Route = createFileRoute("/grupo")({
@@ -9,9 +10,14 @@ export const Route = createFileRoute("/grupo")({
       { title: "Entrando no grupo… — Pedal em Oferta" },
       { name: "robots", content: "noindex,nofollow" },
     ],
+    links: [
+      { rel: "preconnect", href: "https://chat.whatsapp.com", crossOrigin: "" },
+      { rel: "dns-prefetch", href: "https://chat.whatsapp.com" },
+    ],
   }),
   component: Grupo,
 });
+
 
 // Fallback caso o link ativo não possa ser carregado
 const FALLBACK_LINK = "https://chat.whatsapp.com/KnyYvtoZ0dcEjOWeRlUAcv";
@@ -41,7 +47,7 @@ function Grupo() {
     // Usa o link já pré-buscado na home, se disponível (redireciona na hora)
     let cached: string | null = null;
     try {
-      cached = sessionStorage.getItem("pedal_active_link");
+      cached = sessionStorage.getItem(ACTIVE_LINK_CACHE_KEY);
     } catch {
       cached = null;
     }
@@ -53,16 +59,8 @@ function Grupo() {
       };
     }
 
-    supabase
-      .from("whatsapp_links")
-      .select("url")
-      .eq("is_active", true)
-      .limit(1)
-      .maybeSingle()
-      .then(
-        ({ data }) => go(data?.url ?? FALLBACK_LINK),
-        () => go(FALLBACK_LINK),
-      );
+    void fetchActiveLink().then((url) => go(url ?? FALLBACK_LINK));
+
 
     return () => {
       cancelled = true;
@@ -97,7 +95,7 @@ function Grupo() {
         }}
       />
 
-      <p
+      <h1
         style={{
           fontSize: 18,
           fontWeight: 600,
@@ -108,7 +106,8 @@ function Grupo() {
         {isDesktop
           ? "Abrindo no WhatsApp Web…"
           : "Aguarde, abrindo o WhatsApp…"}
-      </p>
+      </h1>
+
 
       <p
         style={{
