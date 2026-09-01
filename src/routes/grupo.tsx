@@ -90,7 +90,7 @@ function Grupo() {
         }}
       />
 
-      <p
+      <h1
         style={{
           fontSize: 18,
           fontWeight: 600,
@@ -101,7 +101,8 @@ function Grupo() {
         {isDesktop
           ? "Abrindo no WhatsApp Web…"
           : "Aguarde, abrindo o WhatsApp…"}
-      </p>
+      </h1>
+
 
       <p
         style={{
