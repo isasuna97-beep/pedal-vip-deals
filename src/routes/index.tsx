@@ -1,11 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, BadgeCheck, Settings } from "lucide-react";
-import logo from "@/assets/pedal-logo.png.asset.json";
-import whatsappIcon from "@/assets/whatsapp-icon.png";
+import { supabase } from "@/integrations/supabase/client";
+import logo from "@/assets/pedal-logo.webp";
+import whatsappIcon from "@/assets/whatsapp-icon.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [{ rel: "preload", as: "image", href: logo, fetchpriority: "high" }],
     meta: [
       { title: "Pedal em Oferta — Grupo VIP de Ofertas Secretas" },
       {
@@ -98,6 +100,27 @@ const BENEFITS = [
 ];
 
 function Index() {
+  // Pré-busca o link ativo para que /grupo redirecione instantaneamente
+  useEffect(() => {
+    supabase
+      .from("whatsapp_links")
+      .select("url")
+      .eq("is_active", true)
+      .limit(1)
+      .maybeSingle()
+      .then(
+        ({ data }) => {
+          if (data?.url) {
+            try {
+              sessionStorage.setItem("pedal_active_link", data.url);
+            } catch {
+              /* ignora */
+            }
+          }
+        },
+        () => {},
+      );
+  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -117,8 +140,12 @@ function Index() {
 
         <div className="relative mt-4">
           <img
-            src={logo.url}
+            src={logo}
             alt="Logo do grupo Pedal em Oferta"
+            width={112}
+            height={112}
+            fetchPriority="high"
+            decoding="async"
             className="size-28 rounded-full border-4 border-primary object-cover shadow-soft"
           />
           <span className="absolute -bottom-1 -right-1 grid size-8 place-items-center rounded-full bg-background">
@@ -157,6 +184,10 @@ function Index() {
           <img
             src={whatsappIcon}
             alt="Ícone do WhatsApp"
+            width={28}
+            height={28}
+            loading="lazy"
+            decoding="async"
             className="size-7 shrink-0"
           />
           Entrar no grupo e economizar

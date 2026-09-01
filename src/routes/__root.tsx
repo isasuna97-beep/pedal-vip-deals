@@ -110,11 +110,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 
-const GTM_HEAD = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NG8B78VC');`;
+// GTM carregado de forma diferida (após load ou primeira interação)
+// para não bloquear a renderização inicial. dataLayer fica disponível já no head.
+const GTM_HEAD = `window.dataLayer=window.dataLayer||[];
+window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+(function(w,d,s,i){var loaded=false;function load(){if(loaded)return;loaded=true;
+var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
+j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);}
+var evts=['pointerdown','keydown','touchstart','scroll'];
+evts.forEach(function(e){w.addEventListener(e,load,{once:true,passive:true});});
+if(d.readyState==='complete'){setTimeout(load,1200);}else{w.addEventListener('load',function(){setTimeout(load,1200);});}
+})(window,document,'script','GTM-NG8B78VC');`;
 
 
 function RootShell({ children }: { children: ReactNode }) {

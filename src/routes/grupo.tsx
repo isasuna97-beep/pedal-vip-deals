@@ -32,11 +32,26 @@ function Grupo() {
     const go = (target: string) => {
       if (cancelled) return;
       setLink(target);
-      const wait = Math.max(0, 1200 - (Date.now() - started));
+      const wait = Math.max(0, 400 - (Date.now() - started));
       timer = setTimeout(() => {
         window.location.href = target;
       }, wait);
     };
+
+    // Usa o link já pré-buscado na home, se disponível (redireciona na hora)
+    let cached: string | null = null;
+    try {
+      cached = sessionStorage.getItem("pedal_active_link");
+    } catch {
+      cached = null;
+    }
+    if (cached) {
+      go(cached);
+      return () => {
+        cancelled = true;
+        clearTimeout(timer);
+      };
+    }
 
     supabase
       .from("whatsapp_links")
