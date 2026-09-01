@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, BadgeCheck, Settings } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { ACTIVE_LINK_CACHE_KEY, fetchActiveLink } from "@/lib/active-link";
 import logo from "@/assets/pedal-logo.webp";
 import whatsappIcon from "@/assets/whatsapp-icon.webp";
 
