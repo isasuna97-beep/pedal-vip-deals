@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { ACTIVE_LINK_CACHE_KEY, fetchActiveLink } from "@/lib/active-link";
+
 
 
 export const Route = createFileRoute("/grupo")({
