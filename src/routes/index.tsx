@@ -1,11 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, BadgeCheck, Settings } from "lucide-react";
-import logo from "@/assets/pedal-logo.png.asset.json";
-import whatsappIcon from "@/assets/whatsapp-icon.png";
+import { supabase } from "@/integrations/supabase/client";
+import logo from "@/assets/pedal-logo.webp";
+import whatsappIcon from "@/assets/whatsapp-icon.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [{ rel: "preload", as: "image", href: logo, fetchpriority: "high" }],
     meta: [
       { title: "Pedal em Oferta — Grupo VIP de Ofertas Secretas" },
       {
