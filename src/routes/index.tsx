@@ -140,8 +140,12 @@ function Index() {
 
         <div className="relative mt-4">
           <img
-            src={logo.url}
+            src={logo}
             alt="Logo do grupo Pedal em Oferta"
+            width={112}
+            height={112}
+            fetchPriority="high"
+            decoding="async"
             className="size-28 rounded-full border-4 border-primary object-cover shadow-soft"
           />
           <span className="absolute -bottom-1 -right-1 grid size-8 place-items-center rounded-full bg-background">
