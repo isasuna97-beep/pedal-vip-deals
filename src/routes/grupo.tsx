@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-
+import { getActiveWhatsappLink } from "@/lib/whatsapp-links";
 
 export const Route = createFileRoute("/grupo")({
   head: () => ({
@@ -13,62 +12,17 @@ export const Route = createFileRoute("/grupo")({
   component: Grupo,
 });
 
-// Fallback caso o link ativo não possa ser carregado
-const FALLBACK_LINK = "https://chat.whatsapp.com/KnyYvtoZ0dcEjOWeRlUAcv";
-
-// ─── component ───────────────────────────────────────────────────────────────
-
 function Grupo() {
   const [isDesktop, setIsDesktop] = useState(false);
-  const [link, setLink] = useState(FALLBACK_LINK);
+  const link = getActiveWhatsappLink();
 
   useEffect(() => {
     setIsDesktop(!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent));
-
-    let cancelled = false;
-    let timer: ReturnType<typeof setTimeout>;
-    const started = Date.now();
-
-    const go = (target: string) => {
-      if (cancelled) return;
-      setLink(target);
-      const wait = Math.max(0, 400 - (Date.now() - started));
-      timer = setTimeout(() => {
-        window.location.href = target;
-      }, wait);
-    };
-
-    // Usa o link já pré-buscado na home, se disponível (redireciona na hora)
-    let cached: string | null = null;
-    try {
-      cached = sessionStorage.getItem("pedal_active_link");
-    } catch {
-      cached = null;
-    }
-    if (cached) {
-      go(cached);
-      return () => {
-        cancelled = true;
-        clearTimeout(timer);
-      };
-    }
-
-    supabase
-      .from("whatsapp_links")
-      .select("url")
-      .eq("is_active", true)
-      .limit(1)
-      .maybeSingle()
-      .then(
-        ({ data }) => go(data?.url ?? FALLBACK_LINK),
-        () => go(FALLBACK_LINK),
-      );
-
-    return () => {
-      cancelled = true;
-      clearTimeout(timer);
-    };
-  }, []);
+    const timer = setTimeout(() => {
+      window.location.href = link;
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [link]);
 
   return (
     <main
