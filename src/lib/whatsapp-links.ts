@@ -20,7 +20,7 @@ export type WhatsappLink = {
 export const WHATSAPP_LINKS: WhatsappLink[] = [
   {
     label: "Grupo principal",
-    url: "https://chat.whatsapp.com/KnyYvtoZ0dcEjOWeRlUAcv",
+    url: "https://chat.whatsapp.com/DHFluOGsv484bE2ePHmEyC",
     active: true,
   },
   // Exemplo de link reserva — basta marcar active: true nele e false no de cima:
