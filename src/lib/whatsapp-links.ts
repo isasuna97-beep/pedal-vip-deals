@@ -20,15 +20,9 @@ export type WhatsappLink = {
 export const WHATSAPP_LINKS: WhatsappLink[] = [
   {
     label: "Grupo principal",
-    url: "https://chat.whatsapp.com/IKD8E5OIYaUCAAKnShRluA?s=cl&p=a&iam=2",
+    url: "https://pedalemoferta.lucreshop.com.br/whatsapp/BoErTR7",
     active: true,
   },
-  // Exemplo de link reserva — basta marcar active: true nele e false no de cima:
-  // {
-  //   label: "Grupo reserva",
-  //   url: "https://chat.whatsapp.com/SEU_CODIGO_AQUI",
-  //   active: false,
-  // },
 ];
 
 export function getActiveWhatsappLink(): string {
